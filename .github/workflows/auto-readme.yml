@@ -1,0 +1,31 @@
+name: 🤖 Atualizador de README
+
+on:
+  pull_request:
+    branches: [ main ] # Roda sempre que alguém abrir um PR para a main
+
+permissions:
+  contents: write # Dá permissão pro robô escrever no repositório
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📥 Baixando o código do PR
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }} # Pega o branch do aluno
+
+      - name: 🐍 Configurando Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: ⚙️ Rodando o script update_readme.py
+        run: python scripts/update_readme.py
+
+      - name: 💾 Salvando alterações (se houver)
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "🤖 bot: atualizando README com as novas pastas"
+          commit_user_name: "Awesome UFCAT Bot"

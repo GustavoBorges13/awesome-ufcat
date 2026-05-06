@@ -6,7 +6,7 @@ BLACKLIST = ['.git', '.github', 'scripts', 'venv', 'README.md', 'CONTRIBUTING.md
 
 def gerar_arvore(caminho_base='.'):
     arvore_md = ""
-    disciplinas = sorted([d for d in os.listdir(caminho_base) if os.path.isdir(d) and d not in BLACKLIST])
+    disciplinas = sorted([d for d in os.listdir(caminho_base) if os.path.isdir(os.path.join(caminho_base, d)) and d not in BLACKLIST])
     
     for disciplina in disciplinas:
         link_disciplina = urllib.parse.quote(disciplina)

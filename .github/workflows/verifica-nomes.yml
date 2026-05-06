@@ -11,7 +11,7 @@ jobs:
       - name: 📥 Baixando o código
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # Pega todo o histórico para comparar
+          fetch-depth: 0
 
       - name: 🔍 Verificando nomes dos arquivos
         run: |
@@ -19,9 +19,9 @@ jobs:
           REGEX="^([0-9]{4}|20XX)_[1-2X](\([0-9]+\))?(_[a-zA-Z0-9]+)?\.(pdf|jpg|png|jpeg)$"
           ERROS=0
           
-          IFS=$'\n' # Faz o sistema ignorar os espaços no nome das pastas
+          IFS=$'\n'
           for FILE in $FILES; do
-            if [[ -n "$FILE" && "$FILE" != "docs/"* && "$FILE" != "scripts/"* && "$FILE" != .* && "$FILE" != *"/"*.* ]]; then
+            if [[ -n "$FILE" && "$FILE" != "docs/"* && "$FILE" != "scripts/"* && "$FILE" != .* ]]; then
               FILENAME=$(basename "$FILE")
               if [[ ! $FILENAME =~ $REGEX ]]; then
                 echo "❌ ERRO: O arquivo '$FILENAME' não segue o padrão <ano>_<semestre>. (Caminho: $FILE)"

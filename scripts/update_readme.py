@@ -9,10 +9,22 @@ def gerar_arvore(caminho_base='.'):
     disciplinas = sorted([d for d in os.listdir(caminho_base) if os.path.isdir(d) and d not in BLACKLIST])
     
     for disciplina in disciplinas:
-        link = urllib.parse.quote(disciplina)
-        arvore_md += f"- [{disciplina}]({link})\n"
+        link_disciplina = urllib.parse.quote(disciplina)
+        arvore_md += f"- [{disciplina}]({link_disciplina})\n"
         
-    return arvore_md
+        # Entra na pasta da disciplina para pegar as subpastas (Prova 1, Prova 2...)
+        caminho_disciplina = os.path.join(caminho_base, disciplina)
+        subpastas = sorted([sub for sub in os.listdir(caminho_disciplina) if os.path.isdir(os.path.join(caminho_disciplina, sub))])
+        
+        for subpasta in subpastas:
+            # Monta o link juntando Disciplina/Subpasta sem quebrar as barras
+            link_subpasta = f"{urllib.parse.quote(disciplina)}/{urllib.parse.quote(subpasta)}"
+            # Adiciona 4 espaços no começo para criar a sub-lista (bullet list aninhada)
+            arvore_md += f"    - [{subpasta}]({link_subpasta})\n"
+            
+        arvore_md += "\n" # Pula uma linha entre as matérias para ficar mais bonito
+        
+    return arvore_md.strip()
 
 def atualizar_readme(texto_arvore):
     with open('README.md', 'r', encoding='utf-8') as f:
@@ -28,7 +40,7 @@ def atualizar_readme(texto_arvore):
         novo_conteudo = (
             conteudo[:inicio + len(marcador_inicio)] + 
             "\n" + texto_arvore + 
-            conteudo[fim:]
+            "\n" + conteudo[fim:]
         )
         with open('README.md', 'w', encoding='utf-8') as f:
             f.write(novo_conteudo)

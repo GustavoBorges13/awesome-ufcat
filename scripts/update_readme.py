@@ -6,7 +6,7 @@ BLACKLIST = ['.git', '.github', 'scripts', 'venv', 'README.md', 'CONTRIBUTING.md
 
 def gerar_arvore(caminho_base='.'):
     arvore_md = ""
-    disciplinas = sorted([d for d in os.listdir(caminho_base) if os.path.isdir(d) and d not in BLACKLIST])
+    disciplinas = sorted([d for d in os.listdir(caminho_base) if os.path.isdir(os.path.join(caminho_base, d)) and d not in BLACKLIST])
     
     for disciplina in disciplinas:
         link_disciplina = urllib.parse.quote(disciplina)
@@ -17,13 +17,10 @@ def gerar_arvore(caminho_base='.'):
         subpastas = sorted([sub for sub in os.listdir(caminho_disciplina) if os.path.isdir(os.path.join(caminho_disciplina, sub))])
         
         for subpasta in subpastas:
-            # Monta o link juntando Disciplina/Subpasta sem quebrar as barras
             link_subpasta = f"{urllib.parse.quote(disciplina)}/{urllib.parse.quote(subpasta)}"
-            # Adiciona 4 espaços no começo para criar a sub-lista (bullet list aninhada)
+            # IMPORTANTE: Esta linha tem 4 espaços dentro das aspas para fazer a bullet list!
             arvore_md += f"    - [{subpasta}]({link_subpasta})\n"
             
-        arvore_md += "\n" # Pula uma linha entre as matérias para ficar mais bonito
-        
     return arvore_md.strip()
 
 def atualizar_readme(texto_arvore):

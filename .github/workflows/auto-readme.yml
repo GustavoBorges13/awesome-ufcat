@@ -2,10 +2,10 @@ name: 🤖 Atualizador de README
 
 on:
   pull_request:
-    branches: [ main ] # Roda sempre que alguém abrir um PR para a main
+    branches: [ main ]
 
 permissions:
-  contents: write # Dá permissão pro robô escrever no repositório
+  contents: write
 
 jobs:
   update-readme:
@@ -14,7 +14,7 @@ jobs:
       - name: 📥 Baixando o código do PR
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.head_ref }} # Pega o branch do aluno
+          ref: ${{ github.head_ref }}
 
       - name: 🐍 Configurando Python
         uses: actions/setup-python@v5

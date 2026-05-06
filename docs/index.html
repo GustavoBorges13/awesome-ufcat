@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Awesome UFCAT - Editor de Provas</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <h1>Awesome UFCAT - Editor de Provas</h1>
+        </div>
+    </header>
+
+    <div class="toolbar">
+        <div class="tool-group">
+            <label for="upload-pdf" class="btn btn-primary">Abrir PDF</label>
+            <input type="file" id="upload-pdf" accept="application/pdf" hidden />
+        </div>
+
+        <div class="tool-group separator">
+            <label for="brush-color" title="Cor do Pincel">Cor:</label>
+            <input type="color" id="brush-color" value="#000000">
+        </div>
+
+        <div class="tool-group">
+            <label for="brush-size">Tamanho:</label>
+            <input type="range" id="brush-size" min="5" max="80" value="25">
+            <span id="brush-size-display">25px</span>
+        </div>
+
+        <div class="tool-group separator">
+            <button id="btn-undo" class="btn btn-icon" title="Desfazer (Ctrl+Z)" disabled>&#x21B6;</button>
+            <button id="btn-redo" class="btn btn-icon" title="Refazer (Ctrl+Y)" disabled>&#x21B7;</button>
+        </div>
+
+        <div class="tool-group separator download-group">
+            <input type="text" id="filename" placeholder="Nome do arquivo (Ex: 2023_1.pdf)">
+            <button id="btn-baixar" class="btn btn-success" disabled>Salvar PDF</button>
+        </div>
+    </div>
+
+    <div class="workspace">
+        <div id="pages-container">
+            <p class="placeholder-text">Nenhum documento carregado. Abra um PDF para começar.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

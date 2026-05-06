@@ -21,14 +21,7 @@ Lista de provas das disciplinas ministradas na UFCAT. Cada pasta contém subdire
 
 ## 📚 Lista de Disciplinas
 <!-- INICIO_LISTA -->
-## 📚 Lista de Disciplinas
-
-### Banco de Dados I
-- [Prova 1](Banco%20de%20Dados%20I/Prova%201)
-- [Prova 2](Banco%20de%20Dados%20I/Prova%202)
-
-### docs
-
+- [Banco de Dados I](Banco%20de%20Dados%20I)
 <!-- FIM_LISTA -->
 
 ## Como Contribuir?

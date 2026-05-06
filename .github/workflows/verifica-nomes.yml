@@ -15,29 +15,25 @@ jobs:
 
       - name: 🔍 Verificando nomes dos arquivos
         run: |
-          # Pega a lista de arquivos que foram adicionados no PR
           FILES=$(git diff --name-only --diff-filter=A origin/main...HEAD)
-          
-          # Regra: Deve começar com 4 números (ou X), underline, semestre (ou X), etc.
-          # Ignora os arquivos de sistema (pasta docs, scripts, etc)
           REGEX="^([0-9]{4}|20XX)_[1-2X](\([0-9]+\))?(_[a-zA-Z0-9]+)?\.(pdf|jpg|png|jpeg)$"
-          
           ERROS=0
           
+          IFS=$'\n' # Faz o sistema ignorar os espaços no nome das pastas
           for FILE in $FILES; do
-            # Se o arquivo estiver dentro das pastas de matérias...
-            if [[ "$FILE" != "docs/"* && "$FILE" != "scripts/"* && "$FILE" != .* && "$FILE" != *"/"*.* ]]; then
+            if [[ -n "$FILE" && "$FILE" != "docs/"* && "$FILE" != "scripts/"* && "$FILE" != .* && "$FILE" != *"/"*.* ]]; then
               FILENAME=$(basename "$FILE")
               if [[ ! $FILENAME =~ $REGEX ]]; then
-                echo "❌ ERRO: O arquivo '$FILENAME' não segue o padrão <ano>_<semestre>."
+                echo "❌ ERRO: O arquivo '$FILENAME' não segue o padrão <ano>_<semestre>. (Caminho: $FILE)"
                 ERROS=1
               fi
             fi
           done
+          unset IFS
           
           if [ $ERROS -eq 1 ]; then
             echo "Por favor, renomeie os arquivos seguindo o CONTRIBUTING.md."
-            exit 1 # Isso faz a bolinha ficar VERMELHA no GitHub barrando o PR!
+            exit 1
           else
             echo "✅ Todos os arquivos estão no padrão correto!"
           fi

@@ -1,0 +1,38 @@
+# ==========================================
+# Ignorar arquivos do Sistema Operacional
+# ==========================================
+# (Muito importante para alunos que arrastam pastas do Mac/Windows)
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# ==========================================
+# Ignorar ambientes e caches do Python
+# ==========================================
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+env/
+.venv/
+.env
+
+# ==========================================
+# Ignorar arquivos de Editores de Código (IDEs)
+# ==========================================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ==========================================
+# Ignorar arquivos temporários e logs
+# ==========================================
+*.log
+*.bak
+*~

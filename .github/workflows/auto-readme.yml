@@ -2,7 +2,7 @@ name: 🤖 Atualizador de README
 
 on:
   push:
-    branches: [ main ]
+    branches: [ dev, main ]
 
 permissions:
   contents: write
@@ -11,10 +11,9 @@ jobs:
   update-readme:
     runs-on: ubuntu-latest
     steps:
-      - name: 📥 Baixando o código do PR
+      - name: 📥 Baixando o código
         uses: actions/checkout@v4
-        with:
-          ref: ${{ github.head_ref }}
+        # Removido o 'ref: github.head_ref' pois agora é um evento de push (merge aprovado)
 
       - name: 🐍 Configurando Python
         uses: actions/setup-python@v5

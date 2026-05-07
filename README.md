@@ -53,6 +53,7 @@ Lista de provas das disciplinas ministradas na UFCAT. Cada pasta contém subdire
 - [Logica Matematica](Logica%20Matematica)
 - [Matematica Discreta](Matematica%20Discreta)
 - [Organizacao de Computadores](Organizacao%20de%20Computadores)
+    - [Prova 1](Organizacao%20de%20Computadores/Prova%201)
 - [Pesquisa Operacional](Pesquisa%20Operacional)
 - [Probabilidade e Estatistica](Probabilidade%20e%20Estatistica)
 - [Processamento de Imagens](Processamento%20de%20Imagens)

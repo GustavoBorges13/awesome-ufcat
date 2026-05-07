@@ -59,7 +59,7 @@ Lista de provas das disciplinas ministradas na UFCAT. Cada pasta contém subdire
 - [Processamento de Imagens](Processamento%20de%20Imagens)
 - [Producao de Texto](Producao%20de%20Texto)
 - [Programacao Orientada a Objetos](Programacao%20Orientada%20a%20Objetos)
-- [Programação Funcional e Logica](Programa%C3%A7%C3%A3o%20Funcional%20e%20Logica)
+- [Programação Funcional e Logica](Programação%20Funcional%20e%20Logica)
 - [Redes de Computadores I](Redes%20de%20Computadores%20I)
 - [Redes de Computadores II](Redes%20de%20Computadores%20II)
 - [Sistemas Digitais](Sistemas%20Digitais)

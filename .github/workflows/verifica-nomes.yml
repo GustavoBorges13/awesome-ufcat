@@ -1,7 +1,7 @@
 name: 🧐 Fiscal de Padrão
 
 on:
-  pull_request:
+  push:
     branches: [ main ]
 
 jobs:

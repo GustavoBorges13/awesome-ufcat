@@ -1,26 +1,37 @@
 import os
-import urllib.parse
 import sys
 
-BLACKLIST = ['.git', '.github', 'scripts', 'venv', 'README.md', 'CONTRIBUTING.md', 'LICENSE', 'update_readme.py', 'docs', 'ufcat_logo.png']
+# Lista OFICIAL de todas as disciplinas (SEM ACENTOS)
+DISCIPLINAS_UFCAT = [
+    "Algebra Linear", "Algoritmos e Programacao de Computadores I", "Algoritmos e Programacao de Computadores II",
+    "Analise e Projeto de Algoritmos", "Arquitetura de Computadores", "Banco de Dados I", "Banco de Dados II",
+    "Calculo I", "Calculo II", "Compiladores", "Computacao Grafica", "Direito a Informatica", "Empreendedorismo",
+    "Engenharia de Software I", "Engenharia de Software II", "Estrutura de Dados I", "Estrutura de Dados II",
+    "Fabrica de Software", "Fisica 3", "Inteligencia Artificial", "Interacao Humano Computador", "Introducao a Computacao",
+    "Laboratorio de Programacao I", "Laboratorio de Programacao II", "Laboratorio de Programacao III",
+    "Linguagens de Programacao", "Linguagens Formais e Automatos", "Logica Matematica", "Matematica Discreta",
+    "Organizacao de Computadores", "Pesquisa Operacional", "Probabilidade e Estatistica", "Processamento de Imagens",
+    "Producao de Texto", "Programacao Funcional e Logica", "Programacao Orientada a Objetos", "Redes de Computadores I",
+    "Redes de Computadores II", "Sistemas Digitais", "Sistemas Distribuidos", "Sistemas Operacionais I",
+    "Sistemas Operacionais II", "Teoria da Computacao", "Teoria dos Grafos"
+]
 
 def gerar_arvore(caminho_base='.'):
     arvore_md = ""
-    disciplinas = sorted([d for d in os.listdir(caminho_base) if os.path.isdir(os.path.join(caminho_base, d)) and d not in BLACKLIST])
     
-    for disciplina in disciplinas:
-        link_disciplina = urllib.parse.quote(disciplina)
+    for disciplina in sorted(DISCIPLINAS_UFCAT):
+        link_disciplina = disciplina.replace(" ", "%20")
         arvore_md += f"- [{disciplina}]({link_disciplina})\n"
         
-        # Entra na pasta da disciplina para pegar as subpastas (Prova 1, Prova 2...)
         caminho_disciplina = os.path.join(caminho_base, disciplina)
-        subpastas = sorted([sub for sub in os.listdir(caminho_disciplina) if os.path.isdir(os.path.join(caminho_disciplina, sub))])
-        
-        for subpasta in subpastas:
-            link_subpasta = f"{urllib.parse.quote(disciplina)}/{urllib.parse.quote(subpasta)}"
-            # IMPORTANTE: Esta linha tem 4 espaços dentro das aspas para fazer a bullet list!
-            arvore_md += f"    - [{subpasta}]({link_subpasta})\n"
+        if os.path.exists(caminho_disciplina) and os.path.isdir(caminho_disciplina):
             
+            subpastas = sorted([sub for sub in os.listdir(caminho_disciplina) if os.path.isdir(os.path.join(caminho_disciplina, sub))])
+            
+            for subpasta in subpastas:
+                link_subpasta = f"{disciplina.replace(' ', '%20')}/{subpasta.replace(' ', '%20')}"
+                arvore_md += f"    - [{subpasta}]({link_subpasta})\n"
+                
     return arvore_md.strip()
 
 def atualizar_readme(texto_arvore):

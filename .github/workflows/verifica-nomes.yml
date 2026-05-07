@@ -16,7 +16,7 @@ jobs:
       - name: 🔍 Verificando nomes dos arquivos
         run: |
           FILES=$(git diff --name-only --diff-filter=A origin/main...HEAD)
-          REGEX="^([0-9]{4}|20XX)_[1-2X](\([0-9]+\))?(_[a-zA-Z0-9]+)?\.(pdf|jpg|png|jpeg)$"
+          REGEX="^[0-9X]{4}_[1-2X](\([0-9]+\))?(_[a-zA-Z0-9]+)?\.(pdf|jpg|png|jpeg|PDF|JPG|PNG|JPEG)$"
           ERROS=0
           
           IFS=$'\n'

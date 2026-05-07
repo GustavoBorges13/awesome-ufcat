@@ -1,8 +1,8 @@
 name: 🧐 Fiscal de Padrão
 
 on:
-  push:
-    branches: [ main ]
+  pull_request:
+    branches: [ dev, main ]
 
 jobs:
   check-filenames:
@@ -15,7 +15,8 @@ jobs:
 
       - name: 🔍 Verificando nomes dos arquivos
         run: |
-          FILES=$(git diff --name-only --diff-filter=A origin/main...HEAD)
+          # A mágica aqui: Ele olha dinamicamente pra branch base do PR (dev ou main)
+          FILES=$(git diff --name-only --diff-filter=A origin/${{ github.base_ref }}...HEAD)
           REGEX="^[0-9X]{4}_[1-2X](\([0-9]+\))?(_[a-zA-Z0-9]+)?\.(pdf|jpg|png|jpeg|PDF|JPG|PNG|JPEG)$"
           ERROS=0
           

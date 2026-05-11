@@ -1,0 +1,14 @@
+1	int i, t=0, j = -3;
+2	for (i = 0; i < 3; i++){
+3	    t = j+2;
+4	    if (t == 3) j--;
+5	    else if (t == 2) j--;
+6	    else if (t == 0) j+=2;
+7	    else if (t != 0 && t != 3 && t != 2) j=0;
+8	    if (j > 0)
+9	        i=3;
+10	    else
+11	        j = 3 - i;
+12	}
+
+Explicaçao: pode ser observado na linha 4 que t == 3 tem um j - - dentro dele, mas no case 3 do código original não tem nada, isso acontece porque devido ao case 3 não ter um brake, quando a condição entra nele, ele vai executar o case 3 e a operação do case 2, então eu coloquei a operação do j - - dentro dele para simular isso.

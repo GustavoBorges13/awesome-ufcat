@@ -1,0 +1,1 @@
+Retardo de transferência é uma característica indesejável, pois quanto menor o retardo, mais rápido a estação estará pronta para transmitir naquele meio.

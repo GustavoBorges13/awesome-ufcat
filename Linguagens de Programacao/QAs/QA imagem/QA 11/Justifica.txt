@@ -1,0 +1,5 @@
+2 - Levando em consideração a confiabilidade o Python é o mais indicado, visto que ele já possui abstrações/APIs que conseguem fazer a criação de um botão de forma automática. Como explicado na questão 3, isso teria que ser feito do 0 em C. A linguagem python também não apresentaria erro de Fallthrough por causa da falta do "break" mostrado no pseudo-código, pois em Python esse trecho de código teria que ser implementado utilizando uma estrutura if-else. 
+
+4 - A linguagem C não terá disponibilidade de construtor e nem nada do tipo, logo essa implementação terá de ser feita completamente do 0, o que vai piorar a legibilidade, a confiabilidade e principalmente a redigibilidade em relação ao Python.
+
+6 - A linha 1 refere-se ao parametro variático em linguagem Lua, e não está de acordo com o Python. Nss linhas 4 e 5, o dicionario vem primeiro que o array, e isso não pode acontecer. Nas linhas 6 e 7 existem dois arrays e dois dicionarios respectivamente, o que não faz sentido em parametros variádicos.

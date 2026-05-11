@@ -1,0 +1,2 @@
+<stmt> -> <string> <nome> = <string> <nome> + <string> <nome>;
+        | <string> <nome> = <string> <nome> + <strings> <nomes>;

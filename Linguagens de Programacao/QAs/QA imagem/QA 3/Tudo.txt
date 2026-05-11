@@ -1,0 +1,36 @@
+Questão 1
+
+tinha na QP, então marquei 2, 5. 6 e 9.
+
+Questão 2
+
+<stmt> -> <string> <nome> = <string> <nome> + <expr>;
+
+<expr> -> <string> <nome>
+        | <type> <nome>
+
+<type> -> <string>
+	| <int>
+	| <float>
+
+
+Questão 3
+
+<decl_var> -> <tipo> <id; 
+            | <tipo> <id> = <valor>;
+
+<valor> -> <numero>; 
+            | <id>;
+
+Questão 4
+
+Marquei 2 e 4
+
+Questão 5
+
+Nessa ele pediu pra fazer uma arvore, tem a mesma arvore no ultimo exercicio da QP, mas como ele pediu derivação mais a esquerda, ta ai.
+
+https://prnt.sc/z00ebk
+
+Não sei se ficou correto.
+

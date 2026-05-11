@@ -1,0 +1,92 @@
+1-
+
+O primeiro exemplo seria tentar fazer alguma operação com o tipo pilha, sem executar a função de CriaPilha, ou seja, sem inicializa-la, como acontece no exemplo abaixo baseado no código pilha-0-struct.c.
+
+#include <stdio.h>
+#define VALOR_NULO -1
+#define TAM 100
+
+typedef struct Pilha {
+    int pilha[TAM]; 
+    int topo;
+} Pilha;
+
+void CriaPilha(Pilha *p) {
+    p->topo = VALOR_NULO;
+}
+
+void main() {
+    Pilha pilha1;
+    imprimePilha(&pilha1);
+}
+
+2 --------------------------------------------------------------------------------------
+
+O segundo exemplo seria atribuir à variável topo um valor aleatório que não condiz com a quantidade de elementos na pilha, como acontece no exemplo abaixo baseado no código pilha-0-struct.c. A partir da atribuição inconsistente "pilha1.topo = 200;" , todas as operações na pilha não serão confiáveis.
+
+#include <stdio.h>
+#define VALOR_NULO -1
+#define TAM 100
+
+typedef struct Pilha {
+    int pilha[TAM]; 
+    int topo;
+} Pilha;
+
+void CriaPilha(Pilha *p) {
+    p->topo = VALOR_NULO;
+}
+
+void main() {
+    Pilha pilha1;
+    CriaPilha(&pilha1);
+    imprimePilha(&pilha1); 
+    Empilha(&pilha1, 10);
+    pilha1.topo = 200;
+}
+
+3 ------------------------------------------------------------------------------------------------------------------
+
+No terceiro exemplo seria atribuir um valor maior ao VALOR_NULO, como 2 ou 3, isso tornaria a pilha inconsistente visto que as posições seriam incrementadas de forma desorganizada, como acontece no exemplo abaixo baseado no código pilha-0-struct.c
+
+#include <stdio.h>
+#define VALOR_NULO 2
+#define TAM 100
+
+typedef struct Pilha {
+    int pilha[TAM]; 
+    int topo;
+} Pilha;
+
+void CriaPilha(Pilha *p) {
+    p->topo = VALOR_NULO;
+}
+
+void main() {
+    Pilha pilha1;
+    CriaPilha(&pilha1);
+    imprimePilha(&pilha1); 
+    Empilha(&pilha1, 10);
+}
+
+4 -------------------------------------------------------------------------------------------
+
+void Desempilha(Pilha *p) {
+    if (!isVazia(p)) {
+        p->pilha[p->topo] = VALOR_NULO;
+        p->topo--;
+    }
+    else {
+        printf("A pilha esta vazia!\n");
+    }
+}
+
+5 -----------------------------------------------------------------------------------------
+
+void main() {
+    Pilha pilha1;
+    CriaPilha(&pilha1);
+    imprimePilha(&pilha1); 
+    Empilha(&pilha1, 10);
+    Desempilha(&pilha1);
+}

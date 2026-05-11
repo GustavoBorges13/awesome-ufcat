@@ -1,0 +1,5 @@
+<decl_var> -> <tipo> <id; 
+            | <tipo> <id> = <valor>;
+
+<valor> -> <numero>; 
+            | <id>;

@@ -63,6 +63,8 @@ Lista de provas das disciplinas ministradas na UFCAT. Cada pasta contém subdire
 - [Redes de Computadores I](Redes%20de%20Computadores%20I)
 - [Redes de Computadores II](Redes%20de%20Computadores%20II)
 - [Sistemas Digitais](Sistemas%20Digitais)
+    - [Prova 1 2023](Sistemas%20Digitais/Prova%201%202023)
+    - [Prova 2025](Sistemas%20Digitais/Prova%202025)
 - [Sistemas Distribuidos](Sistemas%20Distribuidos)
 - [Sistemas Operacionais I](Sistemas%20Operacionais%20I)
 - [Sistemas Operacionais II](Sistemas%20Operacionais%20II)

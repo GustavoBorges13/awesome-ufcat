@@ -7,7 +7,7 @@ DISCIPLINAS_UFCAT = [
     "Analise e Projeto de Algoritmos", "Arquitetura de Computadores", "Banco de Dados I", "Banco de Dados II",
     "Calculo I", "Calculo II", "Compiladores", "Computacao Grafica", "Direito a Informatica", "Empreendedorismo",
     "Engenharia de Software I", "Engenharia de Software II", "Estrutura de Dados I", "Estrutura de Dados II",
-    "Fabrica de Software", "Fisica 3", "Inteligencia Artificial", "Interacao Humano Computador", "Introducao a Computacao",
+    "Fabrica de Software", "Fisica III", "Inteligencia Artificial", "Interacao Humano Computador", "Introducao a Computacao",
     "Laboratorio de Programacao I", "Laboratorio de Programacao II", "Laboratorio de Programacao III",
     "Linguagens de Programacao", "Linguagens Formais e Automatos", "Logica Matematica", "Matematica Discreta",
     "Organizacao de Computadores", "Pesquisa Operacional", "Probabilidade e Estatistica", "Processamento de Imagens",

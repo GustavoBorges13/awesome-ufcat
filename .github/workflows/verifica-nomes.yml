@@ -7,7 +7,7 @@ on:
     branches: [ main, dev ]
 
 jobs:
-  check-filenames:
+  check-standards:
     runs-on: ubuntu-latest
     steps:
       - name: 📥 Baixando o código
@@ -15,37 +15,43 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: 🔍 Verificando nomes dos arquivos
+      - name: 🔍 Verificando Pastas e Arquivos
         run: |
-          # Pega os arquivos modificados/adicionados no PR ou Push
+          # Pega os arquivos modificados/adicionados no PR
           FILES=$(git diff --name-only --diff-filter=A origin/${{ github.base_ref || github.event.before }}...HEAD)
           
-          # NOVA REGEX: Garante o começo 'YYYY_S', mas permite hifens, underlines e letras depois.
-          REGEX="^[0-9X]{4}_[1-2X][-a-zA-Z0-9_() ]*\.(pdf|jpg|png|jpeg|PDF|JPG|PNG|JPEG)$"
-          ERROS=0
+          ERRO_PASTA=0
           
           IFS=$'\n'
           for FILE in $FILES; do
-            if [[ -n "$FILE" && "$FILE" != "docs/"* && "$FILE" != "scripts/"* && "$FILE" != .* ]]; then
-              FILENAME=$(basename "$FILE")
-              
-              # Ignora arquivos de sistema e da raiz se não forem provas
-              if [[ "$FILENAME" == "README.md" || "$FILENAME" == "CONTRIBUTING.md" || "$FILENAME" == "LICENSE" || "$FILENAME" == *.py || "$FILENAME" == *.html || "$FILENAME" == *.css || "$FILENAME" == *.js ]]; then
-                continue
-              fi
+            # Ignora arquivos na raiz (como README), docs/ e scripts/
+            if [[ "$FILE" != */* ]] || [[ "$FILE" == "docs/"* ]] || [[ "$FILE" == "scripts/"* ]] || [[ "$FILE" == .* ]]; then
+              continue
+            fi
 
-              if [[ ! $FILENAME =~ $REGEX ]]; then
-                echo "❌ ERRO: O arquivo '$FILENAME' não segue o padrão. (Caminho: $FILE)"
-                ERROS=1
-              fi
+            # Pega a pasta raiz (Nome da Disciplina) e o Nome do Arquivo
+            DISCIPLINA=$(echo "$FILE" | cut -d'/' -f1)
+            FILENAME=$(basename "$FILE")
+
+            # REGRA 1 (RIGOROSA): Verifica se a Disciplina existe no update_readme.py
+            if ! grep -q "\"$DISCIPLINA\"" update_readme.py; then
+              echo "::error file=$FILE::A disciplina '$DISCIPLINA' não existe! O nome da pasta deve ser idêntico ao que está no update_readme.py. Se for matéria nova, edite o update_readme.py primeiro."
+              ERRO_PASTA=1
+            fi
+
+            # REGRA 2 (FLEXÍVEL): Avisa sobre o padrão de nomeação do arquivo
+            # Verifica se começa com Ano_Semestre (Ex: 2023_1, 202X_X)
+            REGEX="^[0-9X]{4}_[1-2X]"
+            if [[ ! $FILENAME =~ $REGEX ]]; then
+              echo "::warning file=$FILE::O arquivo '$FILENAME' não segue o padrão recomendado (Ex: 2023_1.pdf). Considere renomear para manter a organização, mas não se preocupe: sua prova será aceita de qualquer forma!"
             fi
           done
           unset IFS
           
-          if [ $ERROS -eq 1 ]; then
-            echo "Por favor, renomeie os arquivos seguindo as regras do CONTRIBUTING.md."
-            echo "Exemplos válidos: 2023_1.pdf, 2023_1-pag1.jpg, 2023_1_gabarito_parte_1.jpg"
+          # Se teve erro de PASTA, o bot reprova o PR.
+          if [ $ERRO_PASTA -eq 1 ]; then
+            echo "❌ Foram encontrados erros nas pastas das disciplinas. Corrija para continuar."
             exit 1
           else
-            echo "✅ Todos os arquivos estão no padrão correto!"
+            echo "✅ Validação concluída! Arquivos fora do padrão geraram apenas avisos (warnings)."
           fi

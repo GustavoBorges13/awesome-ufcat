@@ -5,6 +5,7 @@ on:
     branches: [ main, dev ]
   pull_request:
     branches: [ main, dev ]
+  workflow_dispatch: # gatilho pra rodar pelo browser o action...
 
 jobs:
   check-standards:
@@ -17,8 +18,13 @@ jobs:
 
       - name: 🔍 Verificando Pastas e Arquivos
         run: |
-          # Pega os arquivos modificados/adicionados no PR
-          FILES=$(git diff --name-only --diff-filter=A origin/${{ github.base_ref || github.event.before }}...HEAD)
+          # Checa se foi ativado manualmente ou via PR/Push
+          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            echo "Modo Auditoria Manual: Verificando TODOS os arquivos do repositório..."
+            FILES=$(git ls-files)
+          else
+            FILES=$(git diff --name-only --diff-filter=A origin/${{ github.base_ref || github.event.before }}...HEAD)
+          fi
           
           ERRO_PASTA=0
           
@@ -35,22 +41,21 @@ jobs:
 
             # REGRA 1 (RIGOROSA): Verifica se a Disciplina existe no scripts/update_readme.py
             if ! grep -q "\"$DISCIPLINA\"" scripts/update_readme.py; then
-              echo "::error file=$FILE::A disciplina '$DISCIPLINA' não existe! O nome da pasta deve ser idêntico ao que está no update_readme.py da pasta scripts. Se for matéria nova, edite ele primeiro."
+              echo "::error file=$FILE::A disciplina '$DISCIPLINA' não existe! O nome da pasta deve ser idêntico ao que está no update_readme.py da pasta scripts."
               ERRO_PASTA=1
             fi
 
             # REGRA 2 (FLEXÍVEL): Avisa sobre o padrão de nomeação do arquivo
-            # Verifica se começa com Ano_Semestre (Ex: 2023_1, 202X_X)
             REGEX="^[0-9X]{4}_[1-2X]"
             if [[ ! $FILENAME =~ $REGEX ]]; then
-              echo "::warning file=$FILE::O arquivo '$FILENAME' não segue o padrão recomendado (Ex: 2023_1.pdf). Considere renomear para manter a organização, mas não se preocupe: sua prova será aceita de qualquer forma!"
+              echo "::warning file=$FILE::O arquivo '$FILENAME' não segue o padrão recomendado (Ex: 2023_1.pdf)."
             fi
           done
           unset IFS
           
-          # Se teve erro de PASTA, o bot reprova o PR.
+          # Se teve erro de PASTA, o bot reprova a ação.
           if [ $ERRO_PASTA -eq 1 ]; then
-            echo "❌ Foram encontrados erros nas pastas das disciplinas. Corrija para continuar."
+            echo "❌ Foram encontrados erros nas pastas das disciplinas."
             exit 1
           else
             echo "✅ Validação concluída! Arquivos fora do padrão geraram apenas avisos (warnings)."

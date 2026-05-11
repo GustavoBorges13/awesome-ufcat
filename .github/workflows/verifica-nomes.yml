@@ -18,12 +18,17 @@ jobs:
 
       - name: 🔍 Verificando Pastas e Arquivos
         run: |
-          # Checa se foi ativado manualmente ou via PR/Push
+          # Checa como o robô foi ativado para usar o comando Git certo
           if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
-            echo "Modo Auditoria Manual: Verificando TODOS os arquivos do repositório..."
+            echo "🚀 Modo Auditoria Manual: Verificando TODOS os arquivos do repositório..."
             FILES=$(git ls-files)
+          elif [ "${{ github.event_name }}" == "pull_request" ]; then
+            echo "📥 Modo Pull Request: Verificando apenas os arquivos novos do PR..."
+            FILES=$(git diff --name-only --diff-filter=A origin/${{ github.base_ref }}...HEAD)
           else
-            FILES=$(git diff --name-only --diff-filter=A origin/${{ github.base_ref || github.event.before }}...HEAD)
+            echo "📤 Modo Push: Verificando arquivos deste envio..."
+            # Usa fallback para ls-files caso seja uma branch totalmente nova
+            FILES=$(git diff --name-only --diff-filter=A ${{ github.event.before }} HEAD || git ls-files)
           fi
           
           ERRO_PASTA=0

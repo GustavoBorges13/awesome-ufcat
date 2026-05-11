@@ -33,9 +33,9 @@ jobs:
             DISCIPLINA=$(echo "$FILE" | cut -d'/' -f1)
             FILENAME=$(basename "$FILE")
 
-            # REGRA 1 (RIGOROSA): Verifica se a Disciplina existe no update_readme.py
-            if ! grep -q "\"$DISCIPLINA\"" update_readme.py; then
-              echo "::error file=$FILE::A disciplina '$DISCIPLINA' não existe! O nome da pasta deve ser idêntico ao que está no update_readme.py. Se for matéria nova, edite o update_readme.py primeiro."
+            # REGRA 1 (RIGOROSA): Verifica se a Disciplina existe no scripts/update_readme.py
+            if ! grep -q "\"$DISCIPLINA\"" scripts/update_readme.py; then
+              echo "::error file=$FILE::A disciplina '$DISCIPLINA' não existe! O nome da pasta deve ser idêntico ao que está no update_readme.py da pasta scripts. Se for matéria nova, edite ele primeiro."
               ERRO_PASTA=1
             fi
 

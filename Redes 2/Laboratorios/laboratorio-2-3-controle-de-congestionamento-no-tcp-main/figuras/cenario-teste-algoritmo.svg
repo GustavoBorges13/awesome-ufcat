@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1 (ce6663b3b7, 2021-05-25)"
+   sodipodi:docname="cenario-teste-algoritmo.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="true"
+     inkscape:zoom="0.8315052"
+     inkscape:cx="402.88383"
+     inkscape:cy="391.45877"
+     inkscape:window-width="1920"
+     inkscape:window-height="1015"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid9" />
+  </sodipodi:namedview>
+  <defs
+     id="defs2">
+    <marker
+       style="overflow:visible;"
+       id="Arrow1Lend"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8) rotate(180) translate(12.5,0)"
+         style="fill-rule:evenodd;fill:context-stroke;stroke:context-stroke;stroke-width:1.0pt;"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         id="path35875" />
+    </marker>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <text
+       xml:space="preserve"
+       style="font-size:4.23333px;line-height:1.25;font-family:sans-serif;stroke-width:0.264583"
+       x="21.497595"
+       y="123.10867"
+       id="text431"
+       inkscape:export-filename="/home/rcarocha/Sync/Documents/ufg/undergraduating/courses/catalao/RC2/laboratorios/_LABS-2020.2/lab2.3-congestionamento/figuras/cenario-teste-algoritmo.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan429"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';stroke-width:0.264583"
+         x="21.497595"
+         y="123.10867">instante de </tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';stroke-width:0.264583"
+         x="21.497595"
+         y="128.40033"
+         id="tspan433">tempo</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:4.23333px;line-height:1.25;font-family:sans-serif;stroke-width:0.264583"
+       x="56.885414"
+       y="125.67708"
+       id="text7155"
+       inkscape:export-filename="/home/rcarocha/Sync/Documents/ufg/undergraduating/courses/catalao/RC2/laboratorios/_LABS-2020.2/lab2.3-congestionamento/figuras/cenario-teste-algoritmo.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan7153"
+         style="stroke-width:0.264583"
+         x="56.885414"
+         y="125.67708">Os</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:4.23333px;line-height:1.25;font-family:sans-serif;stroke-width:0.264583"
+       x="81.739365"
+       y="125.67708"
+       id="text9851"
+       inkscape:export-filename="/home/rcarocha/Sync/Documents/ufg/undergraduating/courses/catalao/RC2/laboratorios/_LABS-2020.2/lab2.3-congestionamento/figuras/cenario-teste-algoritmo.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan9849"
+         style="stroke-width:0.264583"
+         x="81.739365"
+         y="125.67708">30s</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:4.23333px;line-height:1.25;font-family:sans-serif;stroke-width:0.264583"
+       x="107.67645"
+       y="125.67708"
+       id="text11021"
+       inkscape:export-filename="/home/rcarocha/Sync/Documents/ufg/undergraduating/courses/catalao/RC2/laboratorios/_LABS-2020.2/lab2.3-congestionamento/figuras/cenario-teste-algoritmo.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan11019"
+         style="stroke-width:0.264583"
+         x="107.67645"
+         y="125.67708">60s</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:4.23333px;line-height:1.25;font-family:sans-serif;stroke-width:0.264583"
+       x="133.61458"
+       y="125.67708"
+       id="text11949"
+       inkscape:export-filename="/home/rcarocha/Sync/Documents/ufg/undergraduating/courses/catalao/RC2/laboratorios/_LABS-2020.2/lab2.3-congestionamento/figuras/cenario-teste-algoritmo.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan11947"
+         style="stroke-width:0.264583"
+         x="133.61458"
+         y="125.67708">90s</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       d="m 64.694064,124.13609 c 15.875,0 15.875,0 15.875,0"
+       id="path15084"
+       inkscape:export-filename="/home/rcarocha/Sync/Documents/ufg/undergraduating/courses/catalao/RC2/laboratorios/_LABS-2020.2/lab2.3-congestionamento/figuras/cenario-teste-algoritmo.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       d="m 90.617708,124.13609 c 15.875012,0 15.875012,0 15.875012,0"
+       id="path15084-1"
+       inkscape:export-filename="/home/rcarocha/Sync/Documents/ufg/undergraduating/courses/catalao/RC2/laboratorios/_LABS-2020.2/lab2.3-congestionamento/figuras/cenario-teste-algoritmo.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       d="m 116.54137,124.13609 c 15.875,0 15.875,0 15.875,0"
+       id="path15084-0"
+       inkscape:export-filename="/home/rcarocha/Sync/Documents/ufg/undergraduating/courses/catalao/RC2/laboratorios/_LABS-2020.2/lab2.3-congestionamento/figuras/cenario-teste-algoritmo.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.23333px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';text-align:start;text-anchor:start;stroke-width:0.264583"
+       x="21.371504"
+       y="101.62817"
+       id="text16946"
+       inkscape:export-filename="/home/rcarocha/Sync/Documents/ufg/undergraduating/courses/catalao/RC2/laboratorios/_LABS-2020.2/lab2.3-congestionamento/figuras/cenario-teste-algoritmo.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan16944"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';text-align:start;text-anchor:start;stroke-width:0.264583"
+         x="21.371504"
+         y="101.62817">pares de</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';text-align:start;text-anchor:start;stroke-width:0.264583"
+         x="21.371504"
+         y="106.91983"
+         id="tspan16948">estações</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';text-align:start;text-anchor:start;stroke-width:0.264583"
+         x="21.371504"
+         y="112.21149"
+         id="tspan16950">se comunicando</tspan></text>
+    <g
+       id="g35031"
+       transform="translate(-1.4800098)"
+       inkscape:export-filename="/home/rcarocha/Sync/Documents/ufg/undergraduating/courses/catalao/RC2/laboratorios/_LABS-2020.2/lab2.3-congestionamento/figuras/cenario-teste-algoritmo.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
+      <ellipse
+         style="fill:#e6e6e6;stroke:#000000;stroke-width:0.264999"
+         id="path29882"
+         cx="100.54166"
+         cy="97.965576"
+         rx="38.364582"
+         ry="5.9531226" />
+      <text
+         xml:space="preserve"
+         style="font-size:4.23333px;line-height:1.25;font-family:sans-serif;text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="100.83311"
+         y="96.564819"
+         id="text21146"><tspan
+           sodipodi:role="line"
+           id="tspan21144"
+           style="text-align:center;text-anchor:middle;stroke-width:0.264583"
+           x="100.83311"
+           y="96.564819">par 1</tspan><tspan
+           sodipodi:role="line"
+           style="text-align:center;text-anchor:middle;stroke-width:0.264583"
+           x="100.83311"
+           y="101.85648"
+           id="tspan24292">(TCP)</tspan></text>
+    </g>
+    <g
+       id="g35025"
+       transform="translate(-1.4800098)"
+       inkscape:export-filename="/home/rcarocha/Sync/Documents/ufg/undergraduating/courses/catalao/RC2/laboratorios/_LABS-2020.2/lab2.3-congestionamento/figuras/cenario-teste-algoritmo.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
+      <ellipse
+         style="fill:#e6e6e6;stroke:#000000;stroke-width:0.264999"
+         id="path34839"
+         cx="100.54166"
+         cy="114.43229"
+         rx="14.552083"
+         ry="5.953125" />
+      <text
+         xml:space="preserve"
+         style="font-size:4.23333px;line-height:1.25;font-family:sans-serif;text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="100.54166"
+         y="113.07837"
+         id="text21146-8"><tspan
+           sodipodi:role="line"
+           id="tspan21144-0"
+           style="text-align:center;text-anchor:middle;stroke-width:0.264583"
+           x="100.54166"
+           y="113.07837">par 2</tspan><tspan
+           sodipodi:role="line"
+           style="text-align:center;text-anchor:middle;stroke-width:0.264583"
+           x="100.54166"
+           y="118.37003"
+           id="tspan24292-4">(UDP)</tspan></text>
+    </g>
+  </g>
+</svg>

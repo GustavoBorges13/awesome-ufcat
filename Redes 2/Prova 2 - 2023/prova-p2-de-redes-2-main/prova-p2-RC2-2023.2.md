@@ -75,7 +75,7 @@ A visualização ao vivo no cliente de streaming não é mantida durante todo o 
 
 Ao final da prova, dê o commit no git, **e NÃO ESQUEÇA de executar o push no repositório**. Se você acessar a sua prova pela interface web do Github e ela estiver atualizada lá, então é sinal de que o push foi realizado corretamente.
 
-* 'LUAN DINIZ MAZARO RODOVALHO' ===> 5,5 (lab Prova P2)
+* 'Fulano de tal' ===> 5,5 (lab Prova P2)
 
 * **Revisões/Problemas**:
   * Ver respostas em <https://drive.google.com/file/d/18mQcGfW5VRKu1-kVHsKVy9hKws0gvRV-/view?usp=sharing>

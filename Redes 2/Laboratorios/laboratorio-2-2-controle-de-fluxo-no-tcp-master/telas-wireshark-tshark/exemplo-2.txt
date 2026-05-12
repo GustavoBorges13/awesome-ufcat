@@ -1,0 +1,25 @@
+ESTA SAIDA É APENAS UM EXEMPLO FICTICIO
+---------------------------------------
+
+
+No.     Time           Source                Destination           Protocol Length SSID       Info
+      1 0.000000       200.121.1.131         172.16.0.122          TCP      1454              10554 → 80 [ACK] Seq=1 Ack=1 Win=65535 Len=1400 [TCP segment of a reassembled PDU]
+
+Frame 1: 1454 bytes on wire (11632 bits), 1454 bytes captured (11632 bits)
+Ethernet II, Src: 00:50:56:c0:00:01, Dst: 00:0c:29:42:12:13
+Internet Protocol Version 4, Src: 200.121.1.131 (200.121.1.131), Dst: 172.16.0.122 (172.16.0.122)
+    0100 .... = Version: 4
+    .... 0101 = Header Length: 20 bytes (5)
+    Differentiated Services Field: 0x00 (DSCP: CS0, ECN: Not-ECT)
+    Total Length: 1440
+    Identification: 0x0141 (321)
+    Flags: 0x0000
+    ...0 0000 0000 0000 = Fragment offset: 0
+    Time to live: 106
+    Protocol: TCP (6)
+    Header checksum: 0xd390 [validation disabled]
+    [Header checksum status: Unverified]
+    Source: 200.121.1.131 (200.121.1.131)
+    Destination: 172.16.0.122 (172.16.0.122)
+    [Source GeoIP: PE, ASN 6147, Telefonica del Peru S.A.A.]
+Transmission Control Protocol, Src Port: 10554, Dst Port: 80, Seq: 1, Ack: 1, Len: 1400

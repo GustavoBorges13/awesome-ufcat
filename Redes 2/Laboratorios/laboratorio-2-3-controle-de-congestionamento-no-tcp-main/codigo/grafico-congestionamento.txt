@@ -1,0 +1,9 @@
+set title "Controle de Congestionamento do TCP Reno"
+set style line 1
+show timestamp
+set xlabel "Tempo (segundos)"
+set ylabel "Segmentos (cwnd, ssthresh)"
+set terminal png
+set output 'resultados/grafico-controle-de-congestionamento.png'
+plot "tcpprobe.out" using 1:7 title "snd_cwnd - janela", \
+     "tcpprobe.out" using 1:($8>=2147483647 ? 0 : $8) title "snd_ssthresh - threshold"

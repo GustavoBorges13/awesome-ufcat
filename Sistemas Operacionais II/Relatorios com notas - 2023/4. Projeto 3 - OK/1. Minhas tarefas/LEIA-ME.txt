@@ -1,0 +1,9 @@
+Aqui no documento relatorio_projeto3.odt
+
+seria a junção de todos os relatórios de todas as tarefas...
+
+eu recomendo fazer um relatorio por tarefa que nem fiz no ".\5. Projeto 4 - OK\1. Minhas tarefas" para melhor organização, pois se fizer assim
+vai dar umas 70 paginas e fica mais dificil de navegar...
+
+então faça algo assim para nao se perder...
+relatorio_projeto3_<tarefa_X>.odt

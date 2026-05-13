@@ -1,0 +1,13 @@
+KERRISK, Michael. PTHREAD_CREATE. Disponível em: <http://man7.org/linux/man-pages/man3/pthread_create.3.html>. Acesso em: 28 ago. 2018.
+
+ATOMIC_FLAG_CLEAR, atomic_flag_clear_explicit. Disponível em: <https://en.cppreference.com/w/c/atomic/atomic_flag_clear>. Acesso em: 28 ago. 2018.
+
+ATOMIC_FLAG_TEST_AND_SET, atomic_flag_test_and_set_explicit. Disponível em: <https://en.cppreference.com/w/c/atomic/atomic_flag_test_and_set>. Acesso em: 28 ago. 2018.
+
+SEM_WAIT. Disponível em: <http://man7.org/linux/man-pages/man3/sem_wait.3.html>. Acesso em: 28 ago. 2018.
+
+SEM_POST. Disponível em: <http://man7.org/linux/man-pages/man3/sem_post.3.html>. Acesso em: 28 ago. 2018.
+
+SEM_INIT. Disponível em: <http://man7.org/linux/man-pages/man3/sem_init.3.html>. Acesso em: 28 ago. 2018.
+
+SEM_DESTROY. Disponível em: <http://man7.org/linux/man-pages/man3/sem_destroy.3.html>. Acesso em: 28 ago. 2018.

@@ -5,7 +5,6 @@ on:
     branches: [ main, dev ]
   pull_request:
     branches: [ main, dev ]
-  workflow_dispatch: # gatilho pra rodar pelo browser o action...
 
 jobs:
   check-standards:
@@ -18,49 +17,45 @@ jobs:
 
       - name: 🔍 Verificando Pastas e Arquivos
         run: |
-          # Checa como o robô foi ativado para usar o comando Git certo
-          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
-            echo "🚀 Modo Auditoria Manual: Verificando TODOS os arquivos do repositório..."
-            FILES=$(git ls-files)
-          elif [ "${{ github.event_name }}" == "pull_request" ]; then
-            echo "📥 Modo Pull Request: Verificando apenas os arquivos novos do PR..."
-            FILES=$(git diff --name-only --diff-filter=A origin/${{ github.base_ref }}...HEAD)
-          else
-            echo "📤 Modo Push: Verificando arquivos deste envio..."
-            # Usa fallback para ls-files caso seja uma branch totalmente nova
-            FILES=$(git diff --name-only --diff-filter=A ${{ github.event.before }} HEAD || git ls-files)
-          fi
+          # Pega os arquivos modificados/adicionados no PR
+          FILES=$(git diff --name-only --diff-filter=A origin/${{ github.base_ref || github.event.before }}...HEAD)
           
           ERRO_PASTA=0
           
           IFS=$'\n'
           for FILE in $FILES; do
-            # Ignora arquivos na raiz (como README), docs/ e scripts/
+            # Ignora arquivos na raiz (como README), docs/ e scripts/ e arquivos ocultos
             if [[ "$FILE" != */* ]] || [[ "$FILE" == "docs/"* ]] || [[ "$FILE" == "scripts/"* ]] || [[ "$FILE" == .* ]]; then
               continue
             fi
 
-            # Pega a pasta raiz (Nome da Disciplina) e o Nome do Arquivo
+            # Pega a pasta raiz (Nome da Disciplina) e o Nome/Extensão do Arquivo
             DISCIPLINA=$(echo "$FILE" | cut -d'/' -f1)
             FILENAME=$(basename "$FILE")
+            
+            # Converte a extensão para minúscula para facilitar a validação
+            EXTENSAO="${FILENAME##*.}"
+            EXTENSAO=$(echo "$EXTENSAO" | tr '[:upper:]' '[:lower:]')
 
             # REGRA 1 (RIGOROSA): Verifica se a Disciplina existe no scripts/update_readme.py
             if ! grep -q "\"$DISCIPLINA\"" scripts/update_readme.py; then
-              echo "::error file=$FILE::A disciplina '$DISCIPLINA' não existe! O nome da pasta deve ser idêntico ao que está no update_readme.py da pasta scripts."
+              echo "::error file=$FILE::A disciplina '$DISCIPLINA' não existe! O nome da pasta deve ser idêntico ao que está no update_readme.py da pasta scripts. Se for matéria nova, edite ele primeiro."
               ERRO_PASTA=1
             fi
 
-            # REGRA 2 (FLEXÍVEL): Avisa sobre o padrão de nomeação do arquivo
-            REGEX="^[0-9X]{4}_[1-2X]"
-            if [[ ! $FILENAME =~ $REGEX ]]; then
-              echo "::warning file=$FILE::O arquivo '$FILENAME' não segue o padrão recomendado (Ex: 2023_1.pdf)."
+            # REGRA 2 (FLEXÍVEL): Avisa sobre o padrão de nomeação APENAS para arquivos de prova/lista
+            if [[ "$EXTENSAO" =~ ^(pdf|jpg|jpeg|png|docx|doc)$ ]]; then
+              REGEX="^[0-9X]{4}_[1-2X]"
+              if [[ ! $FILENAME =~ $REGEX ]]; then
+                echo "::warning file=$FILE::O arquivo '$FILENAME' não segue o padrão recomendado (Ex: 2023_1.pdf). Considere renomear para manter a organização, mas não se preocupe: sua contribuição será aceita de qualquer forma!"
+              fi
             fi
           done
           unset IFS
           
-          # Se teve erro de PASTA, o bot reprova a ação.
+          # Se teve erro de PASTA, o bot reprova o PR.
           if [ $ERRO_PASTA -eq 1 ]; then
-            echo "❌ Foram encontrados erros nas pastas das disciplinas."
+            echo "❌ Foram encontrados erros nas pastas das disciplinas. Corrija para continuar."
             exit 1
           else
             echo "✅ Validação concluída! Arquivos fora do padrão geraram apenas avisos (warnings)."

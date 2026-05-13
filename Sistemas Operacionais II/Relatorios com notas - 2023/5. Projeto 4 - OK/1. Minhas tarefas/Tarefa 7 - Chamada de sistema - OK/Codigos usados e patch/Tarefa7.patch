@@ -1,0 +1,83 @@
+*** src.clean/servers/pm/proto.h	Sun Feb 11 20:37:42 2024
+--- /usr/src/servers/pm/proto.h	Sun Feb 25 03:12:03 2024
+***************
+*** 60,65 ****
+--- 60,66 ----
+  _PROTOTYPE( int do_getepinfo, (void)					);
+  _PROTOTYPE( int do_svrctl, (void)					);
+  _PROTOTYPE( int do_getsetpriority, (void)				);
++ _PROTOTYPE( int do_mycall, (void)					);
+  
+  /* schedule.c */
+  _PROTOTYPE( void sched_init, (void)					);
+*** src.clean/servers/pm/misc.c	Sun Feb 11 20:37:42 2024
+--- /usr/src/servers/pm/misc.c	Sun Feb 25 03:46:01 2024
+***************
+*** 63,68 ****
+--- 63,76 ----
+  FORWARD _PROTOTYPE( int getpciinfo, (struct pciinfo *pciinfo)		);
+  
+  /*===========================================================================*
++  *				do_mycall				     *
++  *===========================================================================*/
++ PUBLIC int do_mycall() {
++   printf("Eu sou uma chamada de sistema.\n");
++   return (OK); 
++ }
++ 
++ /*===========================================================================*
+   *				do_procstat				     *
+   *===========================================================================*/
+  PUBLIC int do_procstat()
+*** src.clean/servers/pm/table.c	Sun Feb 11 20:37:42 2024
+--- /usr/src/servers/pm/table.c	Sun Feb 25 03:10:58 2024
+***************
+*** 81,87 ****
+  	do_getmcontext,	/* 67 = getmcontext */
+  	do_setmcontext,	/* 68 = setmcontext */
+  	no_sys,		/* 69 = unused	*/
+! 	no_sys,		/* 70 = unused	*/
+  	do_sigaction,	/* 71 = sigaction   */
+  	do_sigsuspend,	/* 72 = sigsuspend  */
+  	do_sigpending,	/* 73 = sigpending  */
+--- 81,87 ----
+  	do_getmcontext,	/* 67 = getmcontext */
+  	do_setmcontext,	/* 68 = setmcontext */
+  	no_sys,		/* 69 = unused	*/
+! 	do_mycall,	/* 70 = do_mycall */
+  	do_sigaction,	/* 71 = sigaction   */
+  	do_sigsuspend,	/* 72 = sigsuspend  */
+  	do_sigpending,	/* 73 = sigpending  */
+*** src.clean/include/minix/callnr.h	Sun Feb 11 20:37:41 2024
+--- /usr/src/include/minix/callnr.h	Sun Feb 25 03:17:47 2024
+***************
+*** 59,64 ****
+--- 59,67 ----
+  #define GETMCONTEXT       67
+  #define SETMCONTEXT       68
+  
++ /* Chamada de sistema */
++ #define MYCALL		  70
++ 
+  /* Posix signal handling. */
+  #define SIGACTION	  71
+  #define SIGSUSPEND	  72
+*** src.clean/include/Makefile	Sun Feb 11 20:37:41 2024
+--- /usr/src/include/Makefile	Sun Feb 25 03:22:55 2024
+***************
+*** 9,15 ****
+  	stdint.h stdbool.h stdio.h stdlib.h string.h strings.h sysexits.h \
+  	syslog.h tar.h termcap.h termios.h time.h timers.h tools.h \
+  	ttyent.h ucontext.h unistd.h utime.h utmp.h wchar.h wctype.h \
+! 	hgfs.h tzfile.h util.h fetch.h mpool.h ndbm.h db.h poll.h resolv.h
+  INCS+=	arpa/inet.h arpa/nameser.h
+  INCS+=	minix/a.out.h minix/bitmap.h minix/callnr.h minix/cdrom.h \
+  	minix/com.h minix/config.h minix/const.h minix/cpufeature.h \
+--- 9,15 ----
+  	stdint.h stdbool.h stdio.h stdlib.h string.h strings.h sysexits.h \
+  	syslog.h tar.h termcap.h termios.h time.h timers.h tools.h \
+  	ttyent.h ucontext.h unistd.h utime.h utmp.h wchar.h wctype.h \
+! 	hgfs.h tzfile.h util.h fetch.h mpool.h mylib.h ndbm.h db.h poll.h resolv.h
+  INCS+=	arpa/inet.h arpa/nameser.h
+  INCS+=	minix/a.out.h minix/bitmap.h minix/callnr.h minix/cdrom.h \
+  	minix/com.h minix/config.h minix/const.h minix/cpufeature.h \

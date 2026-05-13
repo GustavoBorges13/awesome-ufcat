@@ -1,0 +1,4 @@
+Ele nao fez devolucao de arquivos, pois agora é so comentario e notas...
+entao se quiser ver os envios que realizei, basta extrair os zips localizados em:
+
+			 ./1. Meu Projeto/Projeto_X_Tarefa_Y

@@ -1,0 +1,12 @@
+*** /usr/src/kernel/system/do_exec.c	Sun Feb 11 20:17:46 2024
+--- src.clean/kernel/system/do_exec.c	Sun Feb 11 20:38:25 2024
+***************
+*** 35,41 ****
+    if(data_copy(caller->p_endpoint, (vir_bytes) m_ptr->PR_NAME_PTR,
+  	KERNEL, (vir_bytes) rp->p_name, (phys_bytes) P_NAME_LEN - 1) != OK)
+    	strncpy(rp->p_name, "<unset>", P_NAME_LEN);
+- 	printf("\nMSG: executando %s\n", rp->p_name);
+  
+    /* Do architecture-specific exec() stuff. */
+    arch_pre_exec(rp, (u32_t) m_ptr->PR_IP_PTR, (u32_t) m_ptr->PR_STACK_PTR);
+--- 35,40 ----

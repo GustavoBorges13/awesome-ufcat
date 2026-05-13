@@ -1,0 +1,13 @@
+Voce precisa usar 7z pra extrair.
+Simples demais... precisa dos 7 arquivos integros e intactos
+
+deixei o hash caso queiram verificar integridade...
+
+hash:
+440f4248c2049ec46c3ccf48575bb5b5ed6016f386bc1fb24eac3bebc227384e  gabaritos_so2_bkp.7z.001
+522636d3bbe632a38f63a923d2123f96622583646ca765b4ec487051113e3b5d  gabaritos_so2_bkp.7z.002
+ed4f3995f9814a6a1faa9936f86453a3c83fbda83ff2b1032113e567f8afcb71  gabaritos_so2_bkp.7z.003
+8aeb09914c56329552d3db3217f2733c081b7344731cc838af5075af67cb1d4e  gabaritos_so2_bkp.7z.004
+86500fd745021ca717692e1851252633eacbe08060e75b8478885c3b460680cd  gabaritos_so2_bkp.7z.005
+dea4cd3abbb0725b9d5dcafa582eeee9a181f6d5aee67c5927c5dc41a8bc8db0  gabaritos_so2_bkp.7z.006
+38bf145b5d2bf53e6bd3c32b235694eaa50a9cc34b2fdab3da82853243052de4  gabaritos_so2_bkp.7z.007
